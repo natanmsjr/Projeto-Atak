@@ -1,0 +1,178 @@
+/*!
+
+=========================================================
+* Tema Projeto Atak - v1.0.0
+=========================================================
+
+* Coded by Natanael Macedo da Silva Junior (natan.msjr@gmail.com)
+
+=========================================================
+
+*/
+
+
+/** Base **/
+:root {
+/*    --black: #192930;
+    --black-2: #1a2e35;
+    --black-3: #375a64;
+    --grey: #d6d6d6;
+    --grey-2: #e3e3e3;
+    --green: #00ff94;
+    --green-2: #45ffb4;
+    --green-3: #00e8ba;
+    --orange: #fb6340;
+    --orange-2: #fbb140;
+    --purple: #5800a4;
+    --purple-2: #4f0094;
+    --purple-3: #320f54;*/
+    --font-family-sans-serif: Nunito Sans, Open Sans, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+
+/** Fonts **/
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-ExtraLight.ttf');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fontsNunitoSans-ExtraLightItalic.ttf');
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-Light.ttf');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-LightItalic.ttf');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-SemiBold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-SemiBoldItalic.ttf');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-BoldItalic.ttf');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-ExtraBold.ttf');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-ExtraBoldItalic.ttf');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-Black.ttf');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-BlackItalic.ttf');
+	font-weight: 900;
+	font-style: italic;
+}
+
+/** Body **/
+body {
+    font-family: Nunito Sans, sans-serif;
+    line-height: 1.7;
+}
+
+/** Btn **/
+.btn {
+    text-transform: none;
+}
+
+/** Text **/
+.text-login {
+	letter-spacing: .3rem;
+}
+
+/** Form login **/
+#form-login > .form-group > input {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0%;
+	padding: 0;
+	transition: border .2s ease-out;
+}
+
+#form-login > .form-group > input:focus,
+#form-login > .form-group > input:valid { 
+	border-color: var(--default);
+}
+
+#form-login > .form-group > label {
+	position: absolute;
+	line-height: 1.5;
+	margin: -2rem 0 0 0;
+	color: var(--gray);
+	transition: margin .2s ease-out, color .2s ease-out, font-size .2s ease-out;
+}
+
+#form-login > .form-group > input:focus + label,
+#form-login > .form-group > input:valid + label {
+	margin: -3.3rem 0 0 0;
+	color: var(--default);
+	font-size: 70%;
+}
+
+#form-login .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+	border-color: var(--default);
+}
+
+#form-login .custom-control-input:checked ~ .custom-control-label::before {
+	background-color: var(--default);
+}
