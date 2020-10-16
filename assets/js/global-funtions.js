@@ -4,6 +4,11 @@
  * @author Natanael Macedo
  */
 
+// Variáveis necessárias
+var buttonText = '',
+buttonTextLoading = '<i class="fas fa-spinner fa-spin"></i> Carregando',
+loading = false;
+
  /**
  * Exibe feedback de erro no form de login
  * @param {object} feedback 
@@ -46,6 +51,47 @@ function removeModal() {
  */
 function showModal(html) {
     $('#modal-point').empty().append(html).modal('show');
+}
+
+/**
+ * Função que gera um modal para feedback de carregamento
+ */
+function loadingModal() {
+    let html =
+        '<div class="modal-dialog modal-dialog-centered modal-sm" role="document">' +
+            '<div class="modal-content">' +
+                '<div class="modal-header border-0 text-right pb-0">' +
+                    '<button type="button" class="close" data-dismiss="modal">' +
+                        '<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>' +
+                    '</button>' +
+                '</div>' +
+                '<div class="modal-body text-center pt-0">' +
+                    '<h4><i class="fas fa-spinner fa-spin fa-lg fa-2x mb-3 mr-2"></i> <br/>Por favor, aguarde</h4>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    showModal(html);
+}
+
+/**
+ * Função que gera um modal para feedback de erro
+ */
+function erroModal() {
+    let html =
+        '<div class="modal-dialog modal-dialog-centered modal-sm" role="document">' +
+            '<div class="modal-content">' +
+                '<div class="modal-header border-0 text-right pb-0">' +
+                    '<button type="button" class="close" data-dismiss="modal">' +
+                        '<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>' +
+                    '</button>' +
+                '</div>' +
+                '<div class="modal-body text-center pt-0">' +
+                    '<h4><i class="fas fa-times fa-lg fa-2x mb-3 mr-2 text-danger"></i> <br/>Ops! Ocorreu um erro</h4>' +
+                    '<button type="button" class="btn btn-outline-default" onclick="removeModal()">Entendi</button>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    showModal(html);
 }
 
 /**

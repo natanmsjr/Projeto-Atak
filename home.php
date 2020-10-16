@@ -43,77 +43,60 @@ $page = new Page($config);
                                         <div class="card-body pt-0">
                                             <ul id="pills-tab" class="nav nav-pills" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-                                                        Ano
-                                                    </a>
+                                                    <a class="nav-link active" id="pills-year-tab" data-toggle="pill" href="javascript:void(0)" role="tab" aria-selected="true" onclick="getStatistic('year', true)">Ano</a>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                                        Mês
-                                                    </a>
+                                                    <a class="nav-link" id="pills-month-tab" data-toggle="pill" href="javascript:void(0)" role="tab" aria-selected="false" onclick="getStatistic('month', true)">Mês</a>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                        Semana
-                                                    </a>
+                                                    <a class="nav-link" id="pills-week-tab" data-toggle="pill" href="javascript:void(0)" role="tab" aria-selected="false" onclick="getStatistic('week', true)">Semana</a>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                        Hoje
-                                                    </a>
+                                                    <a class="nav-link" id="pills-day-tab" data-toggle="pill" href="javascript:void(0)" role="tab" aria-selected="false" onclick="getStatistic('today', true)">Hoje</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Chart Bar -->
+                            <!-- Bar  chart-->
                             <div class="row">
                                 <div class="col-12 mb-3">
-                                    <div id="card-chart-bar" class="card rounded shadow">
+                                    <div id="card-bar-chart" class="card rounded shadow">
                                         <div class="card-header bg-white border-0 pb-0">
                                             <h5 class="border-bottom border-lighter"><b>Checklist x Monitores</b></h5>
                                             <a class="card-info text-muted" href="#"><i class="fas fa-info-circle"></i></a>
                                         </div>
                                         <div class="card-body pt-0">
+                                            <canvas id="bar-chart"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <!-- Chart donut -->
+                                <!-- Donut chart -->
                                 <div class="col-12 col-lg-6 mb-3">
-                                    <div id="card-chart-donut" class="card rounded shadow h-100">
+                                    <div id="card-donut-chart" class="card rounded shadow h-100">
                                         <div class="card-header bg-white border-0 pb-0">
                                             <h5 class="border-bottom border-lighter"><b>Previstos x Realizados</b></h5>
                                             <a class="card-info text-muted" href="#"><i class="fas fa-info-circle"></i></a>
                                         </div>
-                                        <div class="card-body pt-0">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                </div>
-                                                <div class="col-6">
-                                                </div>
+                                        <div class="card-body pt-0 px-0">
+                                            <canvas id="donut-chart"></canvas>
+                                            <div id="donut-chart-percentage" class="text-center">
+                                                <div class="donut-chart-percentage-total w-100 mt-3"><strong>38%</strong> realizado</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Chart progress -->
+                                <!-- Progress bar -->
                                 <div class="col-12 col-lg-6 mb-3">
-                                    <div id="card-chart-progess" class="card rounded shadow h-100">
+                                    <div id="card-progress-bar" class="card rounded shadow h-100">
                                         <div class="card-header bg-white border-0 pb-0">
                                             <h5 class="border-bottom border-lighter"><b>Não conformidades</b></h5>
                                             <a class="card-info text-muted" href="#"><i class="fas fa-info-circle"></i></a>
                                         </div>
-                                        <div class="card-body pt-2">
-                                            <div class="row">
-                                                <div class="col-12 mb-3">
-                                                    <p class="mb-1"><span class="font-weight-bold">803</span> <small class="text-muted">Linkedin</small></p>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div id="card-body-progress-bar" class="card-body pt-2">
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +109,7 @@ $page = new Page($config);
                                     <h5 class="border-bottom border-lighter"><b>Checklist em Andamento</b></h5>
                                     <a class="card-info text-muted" href="#"><i class="fas fa-info-circle"></i></a>
                                 </div>
-                                <div class="card-body pt-2">
+                                <div id="card-body-checklist" class="card-body pt-2">
                                     <div class="table-responsive">
                                         <table id="card-checklist-table" class="table">
                                             <thead class="thead-light">
@@ -137,19 +120,7 @@ $page = new Page($config);
                                                     <th class="text-center" scope="col">Realizados</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="list">
-                                                <tr>
-                                                    <td>APP003</td>
-                                                    <td>Verificação de Higiene Pré-operacional e Operacional</td>
-                                                    <td class="text-center">1300</td>
-                                                    <td class="text-center">987</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>APP003</td>
-                                                    <td>Verificação de Higiene Pré-operacional e Operacional</td>
-                                                    <td class="text-center">1300</td>
-                                                    <td class="text-center">987</td>
-                                                </tr>
+                                            <tbody id="table-checklist" class="list">
                                             </tbody>
                                         </table>
                                     </div>

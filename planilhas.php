@@ -41,7 +41,7 @@ $page = new Page($config);
                                 <div class="col-12 col-lg-6 order-first order-lg-last">
                                     <div class="row">
                                         <div class="col-12 col-lg-5 pr-lg-0 mb-3 mb-lg-0">
-                                            <button class="btn btn-default btn-block"><i class="fas fa-plus-circle"></i> Criar nova planilha</button>
+                                            <button class="btn btn-default btn-block" onclick="addRegister()"><i class="fas fa-plus-circle"></i> Criar nova planilha</button>
                                         </div>
                                         <div class="col-12 col-lg-7 mb-3 mb-lg-0">
                                             <form id="form-search-list" class="form-inline">
@@ -49,7 +49,7 @@ $page = new Page($config);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="search-list" name="search" placeholder="Pesquisa..." required />
+                                                    <input type="text" class="form-control" id="search-list" name="search" placeholder="Pesquisa..." />
                                                     <button id="button-search-list" type="submit" class="btn btn-link text-default"><i class="fas fa-filter fa-lg"></i></button>
                                                 </div>
                                             </form>
@@ -82,7 +82,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(0)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(0)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -95,7 +95,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(1)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(1)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -108,7 +108,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(2)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(2)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -121,7 +121,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(3)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(3)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -134,7 +134,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(4)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(4)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -147,7 +147,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(5)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(5)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -160,7 +160,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(6)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(6)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -173,7 +173,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(7)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(7)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -186,7 +186,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(8)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(8)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -199,7 +199,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(9)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(9)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -212,7 +212,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(10)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(10)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -225,7 +225,7 @@ $page = new Page($config);
                                             <td class="text-center">Dia/Turno</td>
                                             <td class="text-center">Ativo</td>
                                             <td class="text-center">
-                                                <a class="text-reset px-1" href="javascript:void(0)" onclick="editRegister(11)"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="text-reset px-1" href="#"><i class="fas fa-pencil-alt"></i></a>
                                                 <a class="text-reset px-1" href="#"><i class="fas fa-file-medical"></i></a>
                                                 <a class="text-dark px-1" href="javascript:void(0)" onclick="removeRegister(11)"><i class="fa fa-trash-alt"></i></a>
                                             </td>
@@ -247,7 +247,7 @@ $page = new Page($config);
                                     </div>
                                     <div class="col-12 col-lg-6 mb-3 mb-lg-0 text-center text-lg-left text-muted">
                                         <div class="py-lg-2">
-                                            <a class="mx-2 text-reset" href="#"><i class="fas fa-chevron-left"></i></a> 1-12 de 12 <a class="mx-2 text-reset" href="#"><i class="fas fa-chevron-right"></i></a>
+                                            <a class="mx-2 text-reset" href="#"><i class="fas fa-chevron-left"></i></a> 1-<span class="total">12</span> de <span class="total">12</span> <a class="mx-2 text-reset" href="#"><i class="fas fa-chevron-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

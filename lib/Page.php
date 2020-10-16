@@ -33,6 +33,7 @@ class Page {
             <link href="assets/css/fontawesome.css" rel="stylesheet" />
             <link href="assets/css/bootstrap-grid.min.css" rel="stylesheet" />
             <link href="assets/css/argon-design-system.min.css" rel="stylesheet" />
+            <link href="assets/css/Chart.css" rel="stylesheet" />
             <link href="assets/css/theme.css" rel="stylesheet" />';
         echo $html;
     }
@@ -129,7 +130,9 @@ class Page {
             '<!-- Scripts -->
             <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
             <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
-            <script type="text/javascript" src="assets/js/global-funtions.js"></script>';
+            <script type="text/javascript" src="assets/js/global-funtions.js"></script>
+            <script type="text/javascript" src="assets/js/Chart.min.js"></script>
+            <script type="text/javascript" src="assets/js/Chart.extension.js"></script>';
         echo $html;
     }
 }

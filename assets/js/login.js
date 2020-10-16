@@ -4,11 +4,6 @@
  * @author Natanael Macedo
  */
 
-// Variáveis necessárias
-var buttonText = '',
-    buttonTextLoading = '<i class="fas fa-spinner fa-spin"></i> Carregando',
-    loading = false;
-
 /**
  * Verifica se os input estão preencidos e permite a transformação do input e label
  */
@@ -33,8 +28,7 @@ function forgotPassword() {
             checkInputs();
         },
         error: function() {
-            div.empty().append("<p>Não foi possível identifica sua soliitação</p>");
-            $('#modal-point').modal('show');
+            showModal("<p>Não foi possível identifica sua soliitação</p>");
             checkInputs();
         }
     });
