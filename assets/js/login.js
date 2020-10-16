@@ -1,28 +1,13 @@
-/*!
-  * login.js v1.0
-  * By Natanael Macedo da Silva Junior - 10/2020
-  */
+/**
+ * Funções da Tela de Login
+ * @version 1.0
+ * @author Natanael Macedo
+ */
 
 // Variáveis necessárias
 var buttonText = '',
-    buttonTextLoading = 'Carregando...',
+    buttonTextLoading = '<i class="fas fa-spinner fa-spin"></i> Carregando',
     loading = false;
-
-/**
- * Exibe feedback de erro no form de login
- * @param {object} feedback 
- * @param {boolean} message 
- */
-function feedbackForm(feedback, message) {
-    let alert =
-        '<div class="alert alert-danger alert-dismissible fade show p-2 pl-4" role="alert">' +
-            '<small><strong>Erro!</strong> ' + message + '</small>' +
-            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                '<span aria-hidden="true">&times;</span>' +
-            '</button>' +
-        '</div>';
-    feedback.empty().append(alert);
-}
 
 /**
  * Verifica se os input estão preencidos e permite a transformação do input e label
@@ -38,15 +23,13 @@ function checkInputs() {
  * Exibe modal de recuperação de senha
  */
 function forgotPassword() {
-    let div = $('#modal-point');
     let email = ($('input[name="email"]').val() != "") ? $('input[name="email"]').val() : "";
     $.ajax({
         dataType: "html",
         type: "POST",
         url: "inc/forgot-password.php",
         success: function(result) {
-            div.empty().append(result);
-            $('#modal-point').modal('show');
+            showModal(result);
             checkInputs();
         },
         error: function() {
@@ -57,40 +40,6 @@ function forgotPassword() {
     });
 }
 
-/**
- * Adiciona uma estrutura oculta de modal ao body
- * */
-function addModal() {
-    let div = $('<div/>');
-	div.attr({
-		id: 'modal-point',
-		class: 'modal fade'
-	});
-    div.attr("data-backdrop", "static").attr("data-keyboard", "false").attr("tabindex", "-1").attr("role", "dialog").attr("aria-hidden", "true");
-    $('body').append(div);
-	$('#modal-point').on('hidden.bs.modal');
-}
-/**
- * Fecha o modal aberto
- */
-function removeModal() {
-    $('#modal-point').modal('hide');
-}
-
-/**
- * Exibe a mensagem de "Carregando..." no botão de submissão do login
- * @param {object} button 
- * @param {boolean} status 
- */
-function loadingButton(button, status) {
-    if(status) {
-        buttonText = button.html();
-        button.empty().html(buttonTextLoading).prop("disabled", true);
-    } else {
-        button.empty().html(buttonText).prop("disabled", false);
-        buttonText = "";
-    }
-}
 /**
  * Retorna json com as informações do usuário logado
  * @param {string} token 
@@ -170,6 +119,5 @@ $('#form-login').submit(function(e) {
  * Inicia funções assim que terminar o carregamento da página
  */
 $(document).ready(function() {
-    addModal();
     checkInputs();
 });

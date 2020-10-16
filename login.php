@@ -1,3 +1,18 @@
+<?php
+/**
+ * Página de Login do sistema
+ * @version 1.0
+ * @author Natanael Macedo
+ */
+
+// Requisita o Autoload
+require_once("autoload.php");
+
+// Variáveis necessárias
+$config = new Configuration();
+$page = new Page($config);
+
+?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie8 no-js" lang="pt-br"><![endif]-->
 <!--[if IE 9]><html class="ie9 no-js" lang="pt-br"><![endif]-->
@@ -5,21 +20,7 @@
 <!--<![endif]-->
 <html lang="pt-br" class="no-js">
     <head>
-        <!-- Meta tags -->
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Language" content="pt-br">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="author" content="Natanael Macedo">
-        <meta name="description" content="Projeto Atak">
-        <!-- Título -->
-        <title>Projeto Atak</title>
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon/favicon.png">
-        <!-- CSS -->
-        <link href="assets/css/fontawesome.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap-grid.min.css" rel="stylesheet" />
-        <link href="assets/css/argon-design-system.min.css" rel="stylesheet" />
-        <link href="assets/css/theme.css" rel="stylesheet" />
+        <?=$page->getHead()?>
     </head>
     <body class="bg-secondary">
         <!-- Page Content -->
@@ -39,6 +40,7 @@
                             <small class="text-muted">Bem-vindo! Faça o login em sua conta.</small>
                         </div>
                     </div>
+                    <!-- Form Login -->
                     <form id="form-login">
                         <div class="row mb-8">
                             <div class="col-12 offset-lg-2 col-lg-8">
@@ -74,9 +76,7 @@
                 </div>
             </div>
         </div>
-        <!-- Scripts -->
-        <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="assets/js/login.js"></script>
+        <?=$page->getScripts()?>
+        <script type="text/javascript" src="assets/js/<?=basename($_SERVER["PHP_SELF"], ".php")?>.js"></script>
     </body>
 </html>

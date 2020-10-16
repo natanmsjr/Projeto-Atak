@@ -1,35 +1,8 @@
-/*!
-
-=========================================================
-* Tema Projeto Atak - v1.0.0
-=========================================================
-
-* Coded by Natanael Macedo da Silva Junior (natan.msjr@gmail.com)
-
-=========================================================
-
+/**
+* Tema geral do Projeto Atak
+* @version 1.0
+* @author Natanael Macedo
 */
-
-
-/** Base **/
-:root {
-/*    --black: #192930;
-    --black-2: #1a2e35;
-    --black-3: #375a64;
-    --grey: #d6d6d6;
-    --grey-2: #e3e3e3;
-    --green: #00ff94;
-    --green-2: #45ffb4;
-    --green-3: #00e8ba;
-    --orange: #fb6340;
-    --orange-2: #fbb140;
-    --purple: #5800a4;
-    --purple-2: #4f0094;
-    --purple-3: #320f54;*/
-    --font-family-sans-serif: Nunito Sans, Open Sans, sans-serif;
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
-
 
 /** Fonts **/
 @font-face {
@@ -123,21 +96,44 @@
 	font-style: italic;
 }
 
+/** Base **/
+:root {
+    --font-family-sans-serif: Nunito Sans, Open Sans, sans-serif;
+}
+
 /** Body **/
 body {
     font-family: Nunito Sans, sans-serif;
 	line-height: 1.7;
 	overflow-x: hidden;
+	color: var(--dark)
 }
 
+/** Typografhy **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--dark);
+}
 /** Btn **/
 .btn {
     text-transform: none;
 }
 
-.btn .btn-link:hover {
-	box-shadow:none;
-	transform:none;
+.btn-link.active.focus,
+.btn-link.active:focus,
+.btn-link.focus,
+.btn-link.focus:active,
+.btn-link:active:focus,
+.btn-link:focus {
+	outline: 0 !important;
+	outline-offset: 0  !important;
+	background-image: none  !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none  !important;
 }
 
 /** Text **/
@@ -251,6 +247,7 @@ body {
 	border-radius: 0;
 }
 
+#sidebar-wrapper > ul > a.list-group-item:hover,
 #sidebar-wrapper > ul > a.list-group-item.active {
 	background-color: #201f41;
 	border-color: #3c4274;
@@ -301,4 +298,86 @@ body {
 	transform: rotate(-45deg) translateY(1rem);
 	z-index: -5;
 	border-radius: .2rem;
+}
+
+/** Card **/
+.card, .card-header {
+	border-radius: .7rem !important;
+}
+
+.card-info {
+	position: absolute;
+	top: 1.25rem;
+	right: 1.5rem;
+}
+
+#card-menu .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #fff;
+	background-color: var(--default);
+}
+
+#card-menu .nav-pills .nav-link {
+	padding: .1rem 1rem;
+	color: var(--light);
+	box-shadow: none;
+	background: none;
+	border-radius: .5rem;
+}
+
+#card-checklist table {
+	font-size: 80%;
+}
+
+#card-checklist .table th,
+#card-checklist .table td {
+	border: none;
+}
+
+#card-checklist .table th {
+	padding: .6rem 1rem;
+}
+
+#card-checklist .table th:first-child {
+	border-radius: .5rem 0 0 .5rem;
+}
+
+#card-checklist .table th:last-child {
+	border-radius: 0 .5rem .5rem 0;
+}
+
+/** Table **/
+@media (max-width: 768px) { 
+	.table {
+		white-space: nowrap !important;
+	}
+}
+
+/** Input search **/
+#search-list {
+	border-right: 1px solid #cad1d7;
+	border-bottom: 1px solid #cad1d7;
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+/** Table Planilhas **/
+#table-planilhas th {
+	border: none;
+	font-size: 80%;
+}
+
+#table-planilhas th {
+	padding: .6rem 1rem;
+}
+
+#table-planilhas th:first-child {
+	border-radius: .5rem 0 0 0;
+}
+
+#table-planilhas th:last-child {
+	border-radius: 0 .5rem 0 0;
+}
+
+#pagination-planilhas {
+	border-radius: 0 0 .5rem .5rem;
 }
