@@ -1,5 +1,5 @@
 /**
- * Funções globais
+ * Funções globais utilizadas no sistema
  * @version 1.0
  * @author Natanael Macedo
  */
@@ -115,6 +115,12 @@ $("#menu-toggle").click(function (e) {
     $("#wrapper").toggleClass("toggled");
 });
 
+/**
+ * Faz logoff do usuário do sistema  (temporário até resolver o problema da conexão)
+ * */
+function logout() {
+    location.href = "../login.php";
+}
 /**
  * Inicia funções assim que terminar o carregamento da página
  */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classe de gerenciamento da sessão
+ * Classe de gerenciamento da sessão e cookies
  * @version 1.0
  * @author Natanael Macedo
  */
@@ -16,7 +16,8 @@ Class Session {
         $this->sessao_campo = '@area_restrita@';
     }
 
-    public function iniciarSessao() {
+    // Inicia uma sessão
+    public function startSession() {
         if(!isset($_SESSION)){
             session_name($this->sessao);
             session_start();
@@ -26,8 +27,9 @@ Class Session {
             unset($_SESSION[$this->sessao_campo]);
         }
     }
-        
-    public function SessaoValida(){
+    
+    // Testa se existe uma sessão válida
+    public function sessionValid() {
         if(!isset($_SESSION)){
             session_name($this->sessao);
             session_start();
@@ -39,9 +41,10 @@ Class Session {
         
         return true;
     }
-        
-    public function SessaoLogadoValida(){
-        if(self::SessaoValida()) {
+    
+    // Testa se existe uma sessão logada válida
+    public function sessionLoggedValid(){
+        if(self::sessionValid()) {
             if(isset($_SESSION[$this->sessao_campo])) {
                 return true;
             } else {
@@ -51,9 +54,10 @@ Class Session {
             return false;
         }
     }
-        
-    public function getSessao(){
-        self::SessaoValida();
+    
+    // Retorna as informações da sessão
+    public function getSession(){
+        self::sessionValid();
         if(isset($_SESSION[$this->sessao_campo])) {
             return $_SESSION[$this->sessao_campo];
         } else {
@@ -61,7 +65,8 @@ Class Session {
         }
     }
         
-    public function finalizarSessao() {
+    // Remove uma sessão ativa
+    public function delSession() {
         unset($_SESSION[$this->sessao_campo]);
         unset($_SESSION);
     }

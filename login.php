@@ -9,8 +9,14 @@
 require_once("autoload.php");
 
 // Variáveis necessárias
+$session = new Session();
 $config = new Configuration();
 $page = new Page($config);
+
+// Testa se já existe uma Sessão válida
+/*if(!$session->sessionLoggedValid()) {
+    $sessio->startSession();
+}*/
 
 ?>
 <!DOCTYPE html>

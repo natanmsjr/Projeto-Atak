@@ -112,7 +112,7 @@ class Page {
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-user">
                                 <a class="dropdown-item py-1" href="#"><i class="fas fa-user"></i> Perfil</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item py-1" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                                <a class="dropdown-item py-1" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a>
                             </div>
                         </li>
                         <li class="navbar-list-group-item list-group-item">

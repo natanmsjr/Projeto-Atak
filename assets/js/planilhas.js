@@ -49,8 +49,22 @@ function addRegister() {
  * @param {int} id 
  */
 function removeRegister(id) {
-    $('#table-planilhas-tr-' + id).remove();
-    updateTotal();
+    let html = 
+        '<div class="modal-dialog modal-dialog-centered modal-sm" role="document">' +
+            '<div class="modal-content">' +
+                '<div class="modal-header border-0 text-right pb-0">' +
+                    '<button type="button" class="close" data-dismiss="modal">' +
+                        '<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>' +
+                    '</button>' +
+                '</div>' +
+                '<div class="modal-body text-center pt-0">' +
+                    '<h6 class="mb-3">Deseja excluir essa planilha?</h6>' +
+                    '<button class="btn btn-outline-success" onclick="$(\'#table-planilhas-tr-' + id + '\').remove(), updateTotal(), removeModal()">Sim</button>' +
+                    '<button class="btn btn-outline-danger" onclick="removeModal()">Não</button>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    showModal(html);
 }
 
 /**
@@ -67,7 +81,7 @@ function updateTotal() {
  */
 function filter(text) {
     $('tr[id^="table-planilhas-tr-"]').filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(text) > -1);
+        $(this).toggle($(this).text().indexOf(text) > -1);
     });
     updateTotal();
 }

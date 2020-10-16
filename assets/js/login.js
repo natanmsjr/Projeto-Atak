@@ -4,6 +4,11 @@
  * @author Natanael Macedo
  */
 
+ //Variáveis necessárias
+ var urlBase = "http://177.125.219.2:8077/api/",
+    urlLogin = urlBase + "auth-integracao.axd",
+    urlInfo = urlBase + "forcadevendas/dadosvendedor";
+
 /**
  * Verifica se os input estão preencidos e permite a transformação do input e label
  */
@@ -34,58 +39,23 @@ function forgotPassword() {
     });
 }
 
-/**
- * Retorna json com as informações do usuário logado
- * @param {string} token 
- */
-function getUserInfo(token) {
-    $.ajax({
-        //crossDomain: true,
-        data: {},
-        dataType: 'json',
-        /*headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-        },*/
-        type: 'GET',
-        url: 'http://177.125.219.2:8077/api/forcadevendas/dadosvendedor',
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'Bearer {' + token +'}');
-        },
-        success: function(result) {
-            console.log(result);
-            return result;
-        },
-        error: function(request, status, erro) {
-            return "{}"
-        }
-    });
-    return "{}";
-}
-
-/**
- * Substitui a ação padrão de submissão do formulário de login
- * */
+/*Teste da requisição dos dados do usuário
 $('#form-login').submit(function(e) {
     e.preventDefault();
     if(loading) return false;
     loading = true;
-    var json = JSON.stringify({
+    var arrayJson = JSON.stringify({
         usuario: $(this).serializeArray()[0].value,
         senha: $(this).serializeArray()[1].value,
         idDispositivo: null,
         idAplicativo: 0
     });
     $.ajax({
-        //crossDomain: true,
-        data: json,
-        dataType: 'text',
-        /*headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-        },*/
+        crossDomain: true,
+        data: arrayJson,
+        dataType: 'json',
         type: 'POST',
-        url: 'http://177.125.219.2:8077/api/auth-integracao.axd',
+        url: urlLogin,
         beforeSend: function() {
             loadingButton($('#button-login'), true);
         },
@@ -105,6 +75,49 @@ $('#form-login').submit(function(e) {
         },
         complete: function (jqXHR, status) {
             (status == "success") ? location.href = "home.php" : null;
+        }
+    });
+});*/
+
+/**
+ * Substitui a ação padrão de submissão do formulário de login
+ * */
+$('#form-login').submit(function(e) {
+    e.preventDefault();
+    if(loading) return false;
+    loading = true;
+    var json = JSON.stringify({
+        usuario: $(this).serializeArray()[0].value,
+        senha: $(this).serializeArray()[1].value,
+        idDispositivo: null,
+        idAplicativo: 0
+    });
+    $.ajax({
+        data: json,
+        dataType: 'json',
+        type: 'POST',
+        url: 'responses/login.php',
+        beforeSend: function() {
+            loadingButton($('#button-login'), true);
+        },
+        success: function(result) {
+            if(result.hasOwnProperty("success")) {
+                console.log(result);
+                location.href = "../home.php";
+            }
+            if(result.hasOwnProperty("erro")) {
+                feedbackForm($("#div-feedback-login"), "Não foi possível fazer o login.");
+            }
+            loading = false;
+            loadingButton($('#button-login'), false);
+        },
+        error: function(request, status, erro) {
+            loading = false;
+            loadingButton($('#button-login'), false);
+            feedbackForm($("#div-feedback-login"), "Não foi possível fazer o login.");
+            console.log("Problema ocorrido: " + status);
+            console.log("Descição: " + erro);
+            console.log("Informações da requisição: \n" + request.getAllResponseHeaders());
         }
     });
 });
