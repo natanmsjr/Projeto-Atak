@@ -7,7 +7,7 @@
 versão. A solução deve conter, uma página de Login (imagem 1 do pdf enviado) e uma tela principal com um drawer lateral
 e as opções para navegação – ver imagem 2 no pdf enviado. Ao abrir a tela principal a Home deve demonstrar as informações - similar a imagem 2 mostrada no pdf enviado. Esses dados podem ser fictícios, mas devem sofrer alterações ao ser modificado, por exemplo, o período. Caso o candidato, tenha desenvolvido o Login e Tela principal – como diferencial – pode desenvolver a Tela de Planilhas – imagem 3 presento no pdf.</p>
 
-<h2>Processo de desenvolvimento<h2>
+<h2>Processo de desenvolvimento</h2>
 
 <p>No desenvolvimento do projeto foram utilizadas as tecnologias disponíveis a vaga desejada. O objetivo do desenvolvimento foi se aproximar ao máximo possível do layout apresentado, mesmo sem os recursos de imagens, css, fonts e demais estruturas originais, disponíveis para o uso.</p>
 
